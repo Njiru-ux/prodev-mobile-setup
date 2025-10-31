@@ -1,0 +1,35 @@
+# Expo
+.expo/
+.expo-shared/
+dist/
+web-build/
+
+# Node
+node_modules/
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Package managers
+package-lock.json
+yarn.lock
+
+# OS
+.DS_Store
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.cache
+
+# Build outputs
+build/
+*.tsbuildinfo
