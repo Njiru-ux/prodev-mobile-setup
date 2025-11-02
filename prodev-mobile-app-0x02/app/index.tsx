@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
-// define assets as variables so TypeScript + Metro are happy
-const BG = require("../assets/images/background-image.png");
+// Use RELATIVE paths to avoid alias issues on web
+const BG   = require("../assets/images/background-image.png");
 const LOGO = require("../assets/images/Logo.png");
 
 export default function Index() {
@@ -20,16 +20,19 @@ export default function Index() {
       <SafeAreaView style={{ flex: 1 }}>
         <ImageBackground source={BG} style={styles.background} resizeMode="cover">
           <View style={styles.container}>
+            {/* Company Logo */}
             <View style={styles.companyLogo}>
               <Image source={LOGO} style={{ width: 150, height: 150, resizeMode: "contain" }} />
             </View>
 
+            {/* Text Group */}
             <View style={styles.textGroup}>
               <Text style={styles.textLarge}>Find your favorite place here</Text>
               <Text style={styles.textSmall}>The best prices for over 2 </Text>
               <Text style={styles.textSmall}>million properties worldwide</Text>
             </View>
 
+            {/* Button + Navigation Group */}
             <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
               <View style={styles.buttonGroup}>
                 <TouchableOpacity style={styles.button}>
@@ -40,6 +43,7 @@ export default function Index() {
                   <Text style={styles.textSmall}>Sign In</Text>
                 </TouchableOpacity>
               </View>
+
               <View style={{ alignItems: "center", paddingVertical: 20 }}>
                 <Text style={{ color: "white" }}>Continue to home</Text>
               </View>
@@ -59,10 +63,26 @@ const styles = StyleSheet.create({
     width: "100%",
     height: Dimensions.get("window").height,
   },
-  companyLogo: { width: "100%", alignItems: "center", padding: 20, marginBottom: 50 },
+  companyLogo: {
+    width: "100%",
+    alignItems: "center",
+    padding: 20,
+    marginBottom: 50,
+  },
   textGroup: { alignItems: "center" },
-  textLarge: { color: "white", fontWeight: "800", fontSize: 40, textAlign: "center", marginBottom: 12 },
-  textSmall: { color: "white", fontSize: 18, fontWeight: "200", textAlign: "center" },
+  textLarge: {
+    color: "white",
+    fontWeight: "800",
+    fontSize: 40,
+    textAlign: "center",
+    marginBottom: 12,
+  },
+  textSmall: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "200",
+    textAlign: "center",
+  },
   transparentButton: {
     borderColor: "white",
     borderWidth: 2,
